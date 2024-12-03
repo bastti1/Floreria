@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Inicio - Florería
+{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background-image: url("{% static 'images/fondo.jpg' %}");
+        background-size: cover;
+        background-attachment: fixed;
+        color: #fff;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+        font-family: Arial, sans-serif;
+    }
+
+    .content {
+        background-color: rgba(145, 142, 142, 0.6);
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 800px;
+        margin: 50px auto;
+        text-align: justify;
+    }
+
+    h2 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 1.2em;
+        line-height: 1.6;
+    }
+</style>
+
+<div class="content">
+    <h2>Beneficios de Tener Plantas</h2>
+    <p>Las plantas no solo embellecen nuestros espacios, sino que también ofrecen una variedad de beneficios para los seres vivos:</p>
+    <ul>
+        <li><strong>Mejoran la calidad del aire:</strong> Las plantas absorben dióxido de carbono y liberan oxígeno, ayudando a purificar el ambiente.</li>
+        <li><strong>Reducen el estrés:</strong> Estudios demuestran que rodearse de naturaleza o cuidar plantas tiene un efecto calmante y reduce los niveles de ansiedad.</li>
+        <li><strong>Promueven la salud mental:</strong> Tener plantas en casa o en el trabajo fomenta la creatividad, el enfoque y la tranquilidad.</li>
+        <li><strong>Regulan la humedad:</strong> Las plantas liberan vapor de agua, contribuyendo a mantener un equilibrio saludable en la humedad del aire.</li>
+        <li><strong>Fomentan la biodiversidad:</strong> Ayudan a mantener ecosistemas saludables, ofreciendo refugio y alimento a pequeños animales e insectos.</li>
+    </ul>
+    <p>¡Explora nuestra selección y encuentra las plantas perfectas para transformar tu espacio en un oasis de vida!</p>
+</div>
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        background: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+
+    .header {
+        background-color: #ff6b6b;
+        color: #ffffff;
+        padding: 15px;
+        text-align: center;
+        border-radius: 8px 8px 0 0;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .content {
+        text-align: center;
+        margin: 20px 0;
+        font-size: 16px;
+    }
+
+    .content strong {
+        color: #333333;
+    }
+
+    .footer {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-danger {
+        background-color: #ff6b6b;
+        color: #ffffff;
+    }
+
+    .btn-danger:hover {
+        background-color: #e63946;
+    }
+
+    .btn-secondary {
+        background-color: #cccccc;
+        color: #333333;
+    }
+
+    .btn-secondary:hover {
+        background-color: #b3b3b3;
+    }
+</style>
+<div class="container">
+    <div class="header">
+        Confirmar eliminación
+    </div>
+    <div class="content">
+        <p>
+            ¿Estás seguro de que quieres borrar el producto <strong>"{{ producto.nombre }}"</strong>?
+        </p>
+        <p style="color: #888;">Esta acción no se puede deshacer.</p>
+    </div>
+    <div class="footer">
+        <form method="POST" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Sí, borrar</button>
+        </form>
+        <a href="{% url 'listar_productos' %}" class="btn btn-secondary">Cancelar</a>
+    </div>
+</div>
+{% endblock %}

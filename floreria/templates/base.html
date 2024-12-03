@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Florería{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a la Florería</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                
+                {% if user.is_authenticated %}
+                    {% if user.is_admin %}
+                        <li><a href="/agregar/">Agregar producto</a></li>
+                        <li><a href="/crear_categoria/">Crear categoria</a></li>
+                    {% endif %}
+                    <li><a href="/productos/">Productos</a></li>
+                    <li><a href="/logout/">Cerrar sesión</a></li>
+                {% else %}
+                    <li><a href="/login/">Iniciar sesión</a></li>
+                    <li><a href="/registrar/">Registrarse</a></li>
+                    <li><a href="/productos/">Productos</a></li>
+                    
+                {% endif %}
+                
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+            
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>© 2024 Florería. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
